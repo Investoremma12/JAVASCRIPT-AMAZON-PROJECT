@@ -469,4 +469,26 @@ const products = [
 		priceCents: 2400,
 		keywords: ['sweaters', 'hoodies', 'apparel', 'mens'],
 	},
+	{
+		id: 'id1-trfgek-gjndvw-dbnje-ny33vh',
+		image: 'images/products/backpack.jpg',
+		name: 'Adult Size backpack For Hicking',
+		rating: {
+			stars: 4,
+			count: 357,
+		},
+		priceCents: 3100,
+		keywords: ['bags', 'items', 'adult', 'hicking'],
+	},
+	{
+		id: 'id2-hdhy-vf43-6bjc-bws',
+		image: 'images/products/umbrella.jpg',
+		name: 'REPEL Windproof Travel Umbrella - Compact & Withstands Winds up to 85MPH , Strongest Premium Auto Folding Umbrella for Rain and Sun',
+		rating: {
+			stars: 4.5,
+			count: 428,
+		},
+		priceCents: 2500,
+		keywords: ['umbrella', 'rain', 'water', 'protector'],
+	},
 ];
