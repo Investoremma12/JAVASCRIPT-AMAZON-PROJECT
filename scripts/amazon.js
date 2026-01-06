@@ -41,7 +41,7 @@ products.forEach((product) => {
 
 					<div class="product-spacer"></div>
 
-					<div class="added-to-cart">
+					<div class="added-to-cart js-added-to-cart-${product.id}">
 						<img src="images/icons/checkmark.png" />
 						Added
 					</div>
@@ -74,7 +74,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
 			matchingItem.quantity += quantitySelector;
 		} else {
 			cart.push({
-				productId: productId,
+				productId,
 				quantity: quantitySelector,
 			});
 		}
@@ -85,5 +85,19 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
 		});
 
 		document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+		let clearId;
+		function addedToCart() {
+			const addedCart = document.querySelector(
+				`.js-added-to-cart-${productId}`
+			);
+			clearTimeout(clearId);
+			addedCart.classList.add('visible-added-to-cart');
+
+			clearId = setTimeout(() => {
+				addedCart.classList.remove('visible-added-to-cart');
+			}, 2000);
+		}
+
+		addedToCart();
 	});
 });
