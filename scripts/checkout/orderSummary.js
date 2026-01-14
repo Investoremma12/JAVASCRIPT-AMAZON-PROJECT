@@ -2,7 +2,7 @@ import { cart, removeFromCart, updateDeliveryOption } from '../../data/cart.js';
 import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-import {
++import {
 	deliveryOptions,
 	getDeliveryOption,
 } from '../../data/deliveryOptions.js';
@@ -68,7 +68,7 @@ export function renderOrderSummary() {
 			const today = dayjs();
 			const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
 			const dateString = deliveryDate.format('dddd, MMMM D');
-			const priceString =
++			const priceString =
 				deliveryOption.priceCents === 0
 					? 'FREE'
 					: `$${formatCurrency(deliveryOption.priceCents)} -`;
