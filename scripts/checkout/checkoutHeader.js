@@ -9,10 +9,11 @@ export function renderCheckoutHeader() {
 			>${calculateCartQuantity()} items</a
 		>)
     `;
-	const checkoutHeader = (document.querySelector(
-		'.js-checkout-middle-header'
-	).innerHTML = checkoutHeaderHtml);
-	return checkoutHeader;
+	const headerElement = document.querySelector('.js-checkout-middle-header');
+	if (headerElement) {
+		headerElement.innerHTML = checkoutHeaderHtml;
+	}
+	return headerElement;
 }
 
 export function deleteLink(

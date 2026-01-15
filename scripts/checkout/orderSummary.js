@@ -2,7 +2,7 @@ import { cart, removeFromCart, updateDeliveryOption } from '../../data/cart.js';
 import { products, getProduct } from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
-+import {
+import {
 	deliveryOptions,
 	getDeliveryOption,
 } from '../../data/deliveryOptions.js';
@@ -25,7 +25,9 @@ export function renderOrderSummary() {
 		const dateString = deliveryDate.format('dddd, MMMM D');
 
 		cartSummaryHtml += `
-					<div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
+					<div class="cart-item-container js-cart-item-container js-cart-item-container-${
+						matchingProduct.id
+					}">
 						<div class="delivery-date">Delivery date: ${dateString}</div>
 
 						<div class="cart-item-details-grid">
@@ -39,16 +41,16 @@ export function renderOrderSummary() {
 									${matchingProduct.name}
 								</div>
 								<div class="product-price">$${formatCurrency(matchingProduct.priceCents)}</div>
-								<div class="product-quantity">
+								<div class="product-quantity js-product-quantity-${matchingProduct.id}">
 									<span> Quantity: <span class="quantity-label">${
 										cartItem.quantity
 									}</span> </span>
 									<span class="update-quantity-link link-primary">
 										Update
 									</span>
-									<span class="delete-quantity-link link-primary js-delete-link" data-product-id="${
+									<span class="delete-quantity-link link-primary js-delete-link-${
 										matchingProduct.id
-									}">
+									} js-delete-link" data-product-id="${matchingProduct.id}">
 										Delete
 									</span>
 								</div>
@@ -70,7 +72,7 @@ export function renderOrderSummary() {
 			const today = dayjs();
 			const deliveryDate = today.add(deliveryOption.deliveryDays, 'days');
 			const dateString = deliveryDate.format('dddd, MMMM D');
-+			const priceString =
+			const priceString =
 				deliveryOption.priceCents === 0
 					? 'FREE'
 					: `$${formatCurrency(deliveryOption.priceCents)} -`;
@@ -107,4 +109,4 @@ export function renderOrderSummary() {
 		});
 	});
 }
-renderOrderSummary();
+// renderOrderSummary();
