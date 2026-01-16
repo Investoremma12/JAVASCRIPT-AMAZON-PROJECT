@@ -61,7 +61,7 @@ describe('test suite: renderOrderSummary', () => {
 			document.querySelector(`.js-product-price-${productId1}`).innerText
 		).toContain('$10.90');
 
-		expect([-]
+		expect(
 			document.querySelector(`.js-product-price-${productId2}`).innerText
 		).toContain('$20.95');
 	});
